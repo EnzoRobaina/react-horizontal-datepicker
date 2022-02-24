@@ -13,9 +13,9 @@ var _react = _interopRequireDefault(require("react"));
 
 var _hexToRgb = _interopRequireDefault(require("../global/helpers/hexToRgb"));
 
-var _DateView = require("./DateView");
+var _DateView = _interopRequireDefault(require("./DateView"));
 
-var _MonthView = require("./MonthView");
+var _MonthView = _interopRequireDefault(require("./MonthView"));
 
 var _styled = require("./styled");
 
@@ -47,13 +47,13 @@ const DatePicker = props => {
   let buttonStyle = {
     background: primaryColor
   };
-  let Component = _DateView.DateView;
+  let Component = _DateView.default;
 
   if (props.type === "month") {
     buttonzIndex = {
       zIndex: 5
     };
-    Component = _MonthView.MonthView;
+    Component = _MonthView.default;
     buttonStyle = {
       background: primaryColor,
       marginBottom: "5px"

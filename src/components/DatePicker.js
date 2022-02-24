@@ -2,8 +2,8 @@
 import { addDays } from "date-fns";
 import React from "react";
 import hexToRgb from "../global/helpers/hexToRgb";
-import { DateView } from "./DateView";
-import { MonthView } from "./MonthView";
+import DateView from "./DateView";
+import MonthView from "./MonthView";
 import { Button, ButtonWrapper, Container } from "./styled";
 
 const DatePicker = (props) => {

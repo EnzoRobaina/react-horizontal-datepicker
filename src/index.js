@@ -1,6 +1,5 @@
-import DatePicker from "./components/DatePicker";
-import DateView from "./components/DateView";
-import MonthView from "./components/MonthView";
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
-export default DatePicker;
-export { DateView, MonthView };
+ReactDOM.render(<App />, document.getElementById("root"));

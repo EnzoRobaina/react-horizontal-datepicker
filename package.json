@@ -1,7 +1,7 @@
 {
   "name": "enzorobaina-react-horizontal-datepicker",
   "version": "1.0.0",
-  "homepage": "https://github.com/EnzoRobaina/react-horizontal-datepicker",
+  "homepage": ".",
   "repository": {
     "type": "git",
     "url": "https://github.com/EnzoRobaina/react-horizontal-datepicker"
@@ -16,8 +16,7 @@
     "web"
   ],
   "private": false,
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "./dist/components/DatePicker.js",
   "files": [
     "dist",
     "README.md"
