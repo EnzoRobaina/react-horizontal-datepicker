@@ -4,7 +4,6 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 import { addDays } from "date-fns";
 import React from "react";
 import hexToRgb from "../global/helpers/hexToRgb";
-import "./DatePicker.css";
 import { DateView } from "./DateView";
 import { MonthView } from "./MonthView";
 
