@@ -33,7 +33,7 @@
     "react-scripts": "^4.0.3"
   },
   "scripts": {
-    "publish:npm": "rm -rf dist && mkdir dist && mkdir dist/components && mkdir dist/global && babel src/components -d dist/components --copy-files && babel src/global -d dist/global --copy-files",
+    "compile": "rm -rf dist && mkdir dist && mkdir dist/components && mkdir dist/global && npx babel src/components -d dist/components --copy-files && npx babel src/global -d dist/global --copy-files",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -55,7 +55,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.1",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
     "@babel/preset-react": "^7.10.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
