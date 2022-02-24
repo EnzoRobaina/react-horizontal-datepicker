@@ -9,6 +9,17 @@ import {
   lastDayOfMonth,
   startOfMonth,
 } from "date-fns";
+import {
+  MarkedLabel,
+  DateDayItemMarked,
+  DateDayItem,
+  DayLabel,
+  DateLabel,
+  MonthContainer,
+  MonthYearLabel,
+  DaysContainer,
+  DateListScrollable,
+} from "./styled";
 
 const DateView = ({
   startDate,
@@ -48,12 +59,9 @@ const DateView = ({
       }
 
       return (
-        <div
-          style={{ ...(markedRes?.style ?? markedStyle) }}
-          className="markedLabel"
-        >
+        <MarkedLabel style={{ ...(markedRes?.style ?? markedStyle) }}>
           {markedRes.text}
-        </div>
+        </MarkedLabel>
       );
     }
 
@@ -80,38 +88,35 @@ const DateView = ({
       for (let j = start; j < end; j++) {
         let currentDay = addDays(month, j);
 
+        const ElementDateDayItem = marked ? DateDayItemMarked : DateDayItem;
+
         days.push(
-          <div
+          <ElementDateDayItem
             id={`${getId(currentDay)}`}
-            className={marked ? "dateDayItemMarked" : "dateDayItem"}
             style={getStyles(currentDay)}
             key={currentDay}
             onClick={() => onDateClick(currentDay)}
           >
-            <div className="dayLabel">{format(currentDay, dayFormat)}</div>
-            <div className="dateLabel">{format(currentDay, dateFormat)}</div>
+            <DayLabel>{format(currentDay, dayFormat)}</DayLabel>
+            <DateLabel>{format(currentDay, dateFormat)}</DateLabel>
             {getMarked(currentDay)}
-          </div>
+          </ElementDateDayItem>
         );
       }
       months.push(
-        <div className="monthContainer" key={month}>
-          <span className="monthYearLabel" style={labelColor}>
+        <MonthContainer key={month}>
+          <MonthYearLabel style={labelColor}>
             {format(month, labelFormat || "MMMM yyyy")}
-          </span>
-          <div className="daysContainer" style={i === 0 ? firstSection : null}>
+          </MonthYearLabel>
+          <DaysContainer style={i === 0 ? firstSection : null}>
             {days}
-          </div>
-        </div>
+          </DaysContainer>
+        </MonthContainer>
       );
       days = [];
     }
 
-    return (
-      <div id={"container"} className="dateListScrollable">
-        {months}
-      </div>
-    );
+    return <DateListScrollable id={"container"}>{months}</DateListScrollable>;
   };
 
   const onDateClick = (day) => {
@@ -152,4 +157,4 @@ const DateView = ({
   return <React.Fragment>{renderDays()}</React.Fragment>;
 };
 
-export { DateView };
+export default DateView;

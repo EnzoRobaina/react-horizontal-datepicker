@@ -1,6 +1,6 @@
 {
-  "name": "react-horizontal-datepicker",
-  "version": "2.0.3",
+  "name": "enzorobaina-react-horizontal-datepicker",
+  "version": "0.1",
   "homepage": "https://github.com/EnzoRobaina/react-horizontal-datepicker",
   "repository": {
     "type": "git",
@@ -16,16 +16,18 @@
     "web"
   ],
   "private": false,
-  "main": "./dist/components/DatePicker.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "license": "MIT",
   "author": "Enzo Robaina",
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
-    ]
-  },
   "dependencies": {
-    "date-fns": "^2.14.0"
+    "@babel/preset-env": "^7.16.11",
+    "date-fns": "^2.14.0",
+    "styled-components": "^5.3.3"
   },
   "peerDependencies": {
     "react": "^16.12.0",

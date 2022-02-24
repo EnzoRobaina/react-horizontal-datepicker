@@ -7,6 +7,7 @@ import {
   isSameDay,
   startOfMonth,
 } from "date-fns";
+import { DateListScrollable, MonthContainer, MonthYearLabel } from "./styled";
 
 const MonthView = ({
   startDate,
@@ -44,25 +45,20 @@ const MonthView = ({
     for (let i = 0; i <= differenceInMonths(lastDate, startDate); i++) {
       const month = startOfMonth(addMonths(startDate, i));
       months.push(
-        <div
+        <MonthContainer
           id={`${getId(month)}`}
-          className="monthContainer"
           key={month}
           style={getStyles(month)}
           onClick={() => onDateClick(month)}
         >
-          <span className="monthYearLabel">
+          <MonthYearLabel>
             {format(month, labelFormat || "MMMM yyyy")}
-          </span>
-        </div>
+          </MonthYearLabel>
+        </MonthContainer>
       );
     }
 
-    return (
-      <div id={"container"} className="dateListScrollable">
-        {months}
-      </div>
-    );
+    return <DateListScrollable id={"container"}>{months}</DateListScrollable>;
   };
 
   const onDateClick = (day) => {
@@ -103,4 +99,4 @@ const MonthView = ({
   return <React.Fragment>{renderDays()}</React.Fragment>;
 };
 
-export { MonthView };
+export default MonthView;

@@ -4,6 +4,7 @@ import React from "react";
 import hexToRgb from "../global/helpers/hexToRgb";
 import { DateView } from "./DateView";
 import { MonthView } from "./MonthView";
+import { Button, ButtonWrapper, Container } from "./styled";
 
 const DatePicker = (props) => {
   const next = (event) => {
@@ -40,25 +41,25 @@ const DatePicker = (props) => {
   }
 
   return (
-    <div className="container">
-      <div className="buttonWrapper" style={buttonzIndex}>
-        <button className="button" style={buttonStyle} onClick={prev}>
+    <Container>
+      <ButtonWrapper style={buttonzIndex}>
+        <Button style={buttonStyle} onClick={prev}>
           &lt;
-        </button>
-      </div>
+        </Button>
+      </ButtonWrapper>
       <Component
         {...props}
         primaryColor={primaryColor}
         startDate={startDate}
         lastDate={lastDate}
       />
-      <div className="buttonWrapper" style={buttonzIndex}>
-        <button className="button" style={buttonStyle} onClick={next}>
+      <ButtonWrapper style={buttonzIndex}>
+        <Button style={buttonStyle} onClick={next}>
           &gt;
-        </button>
-      </div>
-    </div>
+        </Button>
+      </ButtonWrapper>
+    </Container>
   );
 };
 
-export { DatePicker };
+export default DatePicker;
