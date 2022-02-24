@@ -1,10 +1,10 @@
 {
   "name": "react-horizontal-datepicker",
   "version": "2.0.3",
-  "homepage": "https://github.com/kush-agra/react-horizontal-datepicker",
+  "homepage": "https://github.com/EnzoRobaina/react-horizontal-datepicker",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kush-agra/react-horizontal-datepicker.git"
+    "url": "https://github.com/EnzoRobaina/react-horizontal-datepicker"
   },
   "keywords": [
     "date-picker",
@@ -18,7 +18,7 @@
   "private": false,
   "main": "./dist/components/DatePicker.js",
   "license": "MIT",
-  "author": "Kushagra Agrawal",
+  "author": "Enzo Robaina",
   "babel": {
     "presets": [
       "@babel/preset-react"
