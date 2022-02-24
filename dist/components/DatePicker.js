@@ -4,26 +4,26 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 import { addDays } from "date-fns";
 import React from "react";
 import hexToRgb from "../global/helpers/hexToRgb";
-import styles from "./DatePicker.module.css";
+import "./DatePicker.css";
 import { DateView } from "./DateView";
-import { MonthView } from './MonthView';
+import { MonthView } from "./MonthView";
 
 const DatePicker = props => {
   const next = event => {
     event.preventDefault();
-    const e = document.getElementById('container');
+    const e = document.getElementById("container");
     const width = e ? e.getBoundingClientRect().width : null;
     e.scrollLeft += width - 60;
   };
 
   const prev = event => {
     event.preventDefault();
-    const e = document.getElementById('container');
+    const e = document.getElementById("container");
     const width = e ? e.getBoundingClientRect().width : null;
     e.scrollLeft -= width - 60;
   };
 
-  const primaryColor = props.color ? props.color.indexOf("rgb") > 0 ? props.color : hexToRgb(props.color) : 'rgb(54, 105, 238)';
+  const primaryColor = props.color ? props.color.indexOf("rgb") > 0 ? props.color : hexToRgb(props.color) : "rgb(54, 105, 238)";
   const startDate = props.startDate || new Date();
   const lastDate = addDays(startDate, props.days || 90);
   let buttonzIndex = {
@@ -46,12 +46,12 @@ const DatePicker = props => {
   }
 
   return /*#__PURE__*/React.createElement("div", {
-    className: styles.container
+    className: "container"
   }, /*#__PURE__*/React.createElement("div", {
-    className: styles.buttonWrapper,
+    className: "buttonWrapper",
     style: buttonzIndex
   }, /*#__PURE__*/React.createElement("button", {
-    className: styles.button,
+    className: "button",
     style: buttonStyle,
     onClick: prev
   }, "<")), /*#__PURE__*/React.createElement(Component, _extends({}, props, {
@@ -59,10 +59,10 @@ const DatePicker = props => {
     startDate: startDate,
     lastDate: lastDate
   })), /*#__PURE__*/React.createElement("div", {
-    className: styles.buttonWrapper,
+    className: "buttonWrapper",
     style: buttonzIndex
   }, /*#__PURE__*/React.createElement("button", {
-    className: styles.button,
+    className: "button",
     style: buttonStyle,
     onClick: next
   }, ">")));
