@@ -52,6 +52,10 @@ const DateView = ({
   };
 
   const getMarked = (day) => {
+    console.log({ marked });
+    if (!marked) {
+      return "";
+    }
     let markedRes = marked.find((i) => isSameDay(i.date, day));
     if (markedRes) {
       if (!markedRes?.marked) {
