@@ -5,8 +5,10 @@ import hexToRgb from "../global/helpers/hexToRgb";
 import DateView from "./DateView";
 import MonthView from "./MonthView";
 import { Button, ButtonWrapper, Container } from "./styled";
+import * as Locales from "date-fns/locale";
 
 const DatePicker = (props) => {
+  const locale = Locales[props.locale] ?? Locales["enUS"];
   const next = (event) => {
     event.preventDefault();
     const e = document.getElementById("container");
@@ -60,6 +62,7 @@ const DatePicker = (props) => {
         primaryColor={primaryColor}
         startDate={startDate}
         lastDate={lastDate}
+        locale={locale}
       />
       <ButtonWrapper style={buttonzIndex}>
         <Button style={buttonStyle} onClick={next}>

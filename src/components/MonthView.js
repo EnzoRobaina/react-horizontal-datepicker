@@ -7,6 +7,7 @@ import {
   isSameDay,
   startOfMonth,
 } from "date-fns";
+import defaultLocale from "date-fns/locale/en-US";
 import { DateListScrollable, MonthContainer, MonthYearLabel } from "./styled";
 
 const MonthView = ({
@@ -16,6 +17,7 @@ const MonthView = ({
   getSelectedDay,
   primaryColor,
   labelFormat,
+  locale = defaultLocale,
 }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const rgb = primaryColor.replace(/[^\d,]/g, "").split(",");
@@ -52,7 +54,7 @@ const MonthView = ({
           onClick={() => onDateClick(month)}
         >
           <MonthYearLabel>
-            {format(month, labelFormat || "MMMM yyyy")}
+            {format(month, labelFormat || "MMMM yyyy", { locale })}
           </MonthYearLabel>
         </MonthContainer>
       );

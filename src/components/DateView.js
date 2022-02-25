@@ -9,6 +9,7 @@ import {
   lastDayOfMonth,
   startOfMonth,
 } from "date-fns";
+import defaultLocale from "date-fns/locale/en-US";
 import {
   MarkedLabel,
   DateDayItemMarked,
@@ -29,6 +30,7 @@ const DateView = ({
   primaryColor,
   labelFormat,
   marked,
+  locale = defaultLocale,
 }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const firstSection = { marginLeft: "40px" };
@@ -84,11 +86,12 @@ const DateView = ({
       let start, end;
       const month = startOfMonth(addMonths(startDate, i));
 
-      start = i === 0 ? Number(format(startDate, dateFormat)) - 1 : 0;
+      start =
+        i === 0 ? Number(format(startDate, dateFormat, { locale })) - 1 : 0;
       end =
         i === differenceInMonths(lastDate, startDate)
-          ? Number(format(lastDate, "d"))
-          : Number(format(lastDayOfMonth(month), "d"));
+          ? Number(format(lastDate, "d", { locale }))
+          : Number(format(lastDayOfMonth(month), "d", { locale }));
 
       for (let j = start; j < end; j++) {
         let currentDay = addDays(month, j);
@@ -102,8 +105,10 @@ const DateView = ({
             key={currentDay}
             onClick={() => onDateClick(currentDay)}
           >
-            <DayLabel>{format(currentDay, dayFormat)}</DayLabel>
-            <DateLabel>{format(currentDay, dateFormat)}</DateLabel>
+            <DayLabel>
+              {format(currentDay, dayFormat, { locale }).slice(0, 3)}
+            </DayLabel>
+            <DateLabel>{format(currentDay, dateFormat, { locale })}</DateLabel>
             {getMarked(currentDay)}
           </ElementDateDayItem>
         );
@@ -111,7 +116,7 @@ const DateView = ({
       months.push(
         <MonthContainer key={month}>
           <MonthYearLabel style={labelColor}>
-            {format(month, labelFormat || "MMMM yyyy")}
+            {format(month, labelFormat || "MMMM yyyy", { locale })}
           </MonthYearLabel>
           <DaysContainer style={i === 0 ? firstSection : null}>
             {days}

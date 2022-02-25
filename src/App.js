@@ -17,6 +17,7 @@ function App() {
         selectDate={new Date(2021, 9, 1)}
         getSelectedDay={selectedDay}
         color={"#ff0000"}
+        locale={"ptBR"}
       />
     </div>
   );
