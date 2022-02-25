@@ -11,7 +11,11 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _dateFns = require("date-fns");
 
+var _enUS = _interopRequireDefault(require("date-fns/locale/en-US"));
+
 var _styled = require("./styled");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -31,7 +35,8 @@ const DateView = _ref => {
     getSelectedDay,
     primaryColor,
     labelFormat,
-    marked
+    marked,
+    locale = _enUS.default
   } = _ref;
   const [selectedDate, setSelectedDate] = (0, _react.useState)(null);
   const firstSection = {
@@ -39,17 +44,19 @@ const DateView = _ref => {
   };
   const selectedStyle = {
     fontWeight: "bold",
-    width: "45px",
-    height: "45px",
+    width: "50px",
+    height: "50px",
     borderRadius: "50%",
     border: "2px solid ".concat(primaryColor),
-    color: primaryColor
+    color: primaryColor,
+    alignItems: "center",
+    justifyContent: "center"
   };
   const labelColor = {
     color: primaryColor
   };
   const markedStyle = {
-    color: "#8c3737",
+    color: primaryColor,
     padding: "2px",
     fontSize: 12
   };
@@ -63,10 +70,6 @@ const DateView = _ref => {
   };
 
   const getMarked = day => {
-    console.log({
-      marked
-    });
-
     if (!marked) {
       return "";
     }
@@ -97,8 +100,14 @@ const DateView = _ref => {
     for (let i = 0; i <= (0, _dateFns.differenceInMonths)(lastDate, startDate); i++) {
       let start, end;
       const month = (0, _dateFns.startOfMonth)((0, _dateFns.addMonths)(startDate, i));
-      start = i === 0 ? Number((0, _dateFns.format)(startDate, dateFormat)) - 1 : 0;
-      end = i === (0, _dateFns.differenceInMonths)(lastDate, startDate) ? Number((0, _dateFns.format)(lastDate, "d")) : Number((0, _dateFns.format)((0, _dateFns.lastDayOfMonth)(month), "d"));
+      start = i === 0 ? Number((0, _dateFns.format)(startDate, dateFormat, {
+        locale
+      })) - 1 : 0;
+      end = i === (0, _dateFns.differenceInMonths)(lastDate, startDate) ? Number((0, _dateFns.format)(lastDate, "d", {
+        locale
+      })) : Number((0, _dateFns.format)((0, _dateFns.lastDayOfMonth)(month), "d", {
+        locale
+      }));
 
       for (let j = start; j < end; j++) {
         let currentDay = (0, _dateFns.addDays)(month, j);
@@ -108,14 +117,20 @@ const DateView = _ref => {
           style: getStyles(currentDay),
           key: currentDay,
           onClick: () => onDateClick(currentDay)
-        }, /*#__PURE__*/_react.default.createElement(_styled.DayLabel, null, (0, _dateFns.format)(currentDay, dayFormat)), /*#__PURE__*/_react.default.createElement(_styled.DateLabel, null, (0, _dateFns.format)(currentDay, dateFormat)), getMarked(currentDay)));
+        }, /*#__PURE__*/_react.default.createElement(_styled.DayLabel, null, (0, _dateFns.format)(currentDay, dayFormat, {
+          locale
+        }).slice(0, 3)), /*#__PURE__*/_react.default.createElement(_styled.DateLabel, null, (0, _dateFns.format)(currentDay, dateFormat, {
+          locale
+        })), getMarked(currentDay)));
       }
 
       months.push( /*#__PURE__*/_react.default.createElement(_styled.MonthContainer, {
         key: month
       }, /*#__PURE__*/_react.default.createElement(_styled.MonthYearLabel, {
         style: labelColor
-      }, (0, _dateFns.format)(month, labelFormat || "MMMM yyyy")), /*#__PURE__*/_react.default.createElement(_styled.DaysContainer, {
+      }, (0, _dateFns.format)(month, labelFormat || "MMMM yyyy", {
+        locale
+      })), /*#__PURE__*/_react.default.createElement(_styled.DaysContainer, {
         style: i === 0 ? firstSection : null
       }, days)));
       days = [];

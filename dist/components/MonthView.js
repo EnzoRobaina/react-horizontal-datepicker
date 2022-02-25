@@ -19,7 +19,11 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _dateFns = require("date-fns");
 
+var _enUS = _interopRequireDefault(require("date-fns/locale/en-US"));
+
 var _styled = require("./styled");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -33,7 +37,8 @@ const MonthView = _ref => {
     selectDate,
     getSelectedDay,
     primaryColor,
-    labelFormat
+    labelFormat,
+    locale = _enUS.default
   } = _ref;
   const [selectedDate, setSelectedDate] = (0, _react.useState)(null);
   const rgb = primaryColor.replace(/[^\d,]/g, "").split(",");
@@ -63,7 +68,9 @@ const MonthView = _ref => {
         key: month,
         style: getStyles(month),
         onClick: () => onDateClick(month)
-      }, /*#__PURE__*/_react.default.createElement(_styled.MonthYearLabel, null, (0, _dateFns.format)(month, labelFormat || "MMMM yyyy"))));
+      }, /*#__PURE__*/_react.default.createElement(_styled.MonthYearLabel, null, (0, _dateFns.format)(month, labelFormat || "MMMM yyyy", {
+        locale
+      }))));
     }
 
     return /*#__PURE__*/_react.default.createElement(_styled.DateListScrollable, {

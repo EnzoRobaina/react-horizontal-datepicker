@@ -21,7 +21,7 @@ const ButtonWrapper = _styledComponents.default.div(_templateObject2 || (_templa
 
 exports.ButtonWrapper = ButtonWrapper;
 
-const Button = _styledComponents.default.button(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  border: none;\n  text-decoration: none;\n  cursor: pointer;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  color: white;\n  font-size: 20px;\n  font-weight: bold;\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0;\n  margin-bottom: 13px;\n"])));
+const Button = _styledComponents.default.button(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  border: none;\n  text-decoration: none;\n  cursor: pointer;\n  border-radius: 50%;\n  width: 50px;\n  height: 50px;\n  color: white;\n  font-size: 20px;\n  font-weight: bold;\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0;\n  margin-bottom: 13px;\n  transition: all linear 0.1s;\n\n  &:hover {\n    transform: translateY(-5px);\n  }\n"])));
 
 exports.Button = Button;
 
