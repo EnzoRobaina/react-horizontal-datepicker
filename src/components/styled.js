@@ -17,8 +17,8 @@ export const Button = styled.button`
   text-decoration: none;
   cursor: pointer;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   color: white;
   font-size: 20px;
   font-weight: bold;
@@ -28,6 +28,11 @@ export const Button = styled.button`
   justify-content: center;
   padding: 0;
   margin-bottom: 13px;
+  transition: all linear 0.1s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
 
 export const MarkedLabel = styled.div`

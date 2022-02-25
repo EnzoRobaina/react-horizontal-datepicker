@@ -11,14 +11,22 @@ const DatePicker = (props) => {
     event.preventDefault();
     const e = document.getElementById("container");
     const width = e ? e.getBoundingClientRect().width : null;
-    e.scrollLeft += width - 60;
+    e.scrollBy({
+      left: width - 60,
+      behavior: "smooth",
+    });
+    // e.scrollLeft += width - 60;
   };
 
   const prev = (event) => {
     event.preventDefault();
     const e = document.getElementById("container");
     const width = e ? e.getBoundingClientRect().width : null;
-    e.scrollLeft -= width - 60;
+    e.scrollBy({
+      left: -(width - 60),
+      behavior: "smooth",
+    });
+    // e.scrollLeft -= width - 60;
   };
 
   const primaryColor = props.color

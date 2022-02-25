@@ -34,14 +34,16 @@ const DateView = ({
   const firstSection = { marginLeft: "40px" };
   const selectedStyle = {
     fontWeight: "bold",
-    width: "45px",
-    height: "45px",
+    width: "50px",
+    height: "50px",
     borderRadius: "50%",
     border: `2px solid ${primaryColor}`,
     color: primaryColor,
+    alignItems: "center",
+    justifyContent: "center",
   };
   const labelColor = { color: primaryColor };
-  const markedStyle = { color: "#8c3737", padding: "2px", fontSize: 12 };
+  const markedStyle = { color: primaryColor, padding: "2px", fontSize: 12 };
 
   const getStyles = (day) => {
     return isSameDay(day, selectedDate) ? selectedStyle : null;
@@ -52,7 +54,6 @@ const DateView = ({
   };
 
   const getMarked = (day) => {
-    console.log({ marked });
     if (!marked) {
       return "";
     }

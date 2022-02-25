@@ -1,5 +1,5 @@
 import React from "react";
-import DatePicker from "./dist/components/DatePicker";
+import DatePicker from "./components/DatePicker";
 
 function App() {
   const selectedDay = (val) => {
@@ -14,11 +14,9 @@ function App() {
       <DatePicker
         startDate={startDate}
         days={366 * 25}
-        type="month"
         selectDate={new Date(2021, 9, 1)}
         getSelectedDay={selectedDay}
-        labelFormat={"MMMM yyyy"}
-        color={"#374e8c"}
+        color={"#ff0000"}
       />
     </div>
   );
