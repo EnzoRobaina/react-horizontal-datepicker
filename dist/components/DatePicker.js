@@ -81,9 +81,10 @@ const DatePicker = props => {
   return /*#__PURE__*/_react.default.createElement(_styled.Container, null, /*#__PURE__*/_react.default.createElement(_styled.ButtonWrapper, {
     style: buttonzIndex
   }, /*#__PURE__*/_react.default.createElement(_styled.Button, {
+    className: "left",
     style: buttonStyle,
     onClick: prev
-  }, "<")), /*#__PURE__*/_react.default.createElement(Component, _extends({}, props, {
+  })), /*#__PURE__*/_react.default.createElement(Component, _extends({}, props, {
     primaryColor: primaryColor,
     startDate: startDate,
     lastDate: lastDate,
@@ -91,9 +92,10 @@ const DatePicker = props => {
   })), /*#__PURE__*/_react.default.createElement(_styled.ButtonWrapper, {
     style: buttonzIndex
   }, /*#__PURE__*/_react.default.createElement(_styled.Button, {
+    className: "right",
     style: buttonStyle,
     onClick: next
-  }, ">")));
+  })));
 };
 
 var _default = DatePicker;

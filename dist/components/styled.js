@@ -17,11 +17,11 @@ const Container = _styledComponents.default.div(_templateObject || (_templateObj
 
 exports.Container = Container;
 
-const ButtonWrapper = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: flex-end;\n  background: inherit;\n"])));
+const ButtonWrapper = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: inherit;\n"])));
 
 exports.ButtonWrapper = ButtonWrapper;
 
-const Button = _styledComponents.default.button(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  border: none;\n  text-decoration: none;\n  cursor: pointer;\n  border-radius: 50%;\n  width: 50px;\n  height: 50px;\n  color: white;\n  font-size: 20px;\n  font-weight: bold;\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0;\n  margin-bottom: 13px;\n  transition: all linear 0.1s;\n\n  &:hover {\n    transform: translateY(-5px);\n  }\n"])));
+const Button = _styledComponents.default.button(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  border: none;\n  text-decoration: none;\n  cursor: pointer;\n  border-radius: 0.25rem;\n  width: 25px;\n  height: 100%;\n  color: white;\n  font-size: 20px;\n  font-weight: bold;\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0;\n  transition: all linear 0.1s;\n\n  &:before {\n    z-index: 100;\n    position: absolute;\n    width: 25px;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    line-height: 0;\n    content: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.85%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e\");\n  }\n\n  &:focus {\n    box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 50%);\n  }\n\n  &.left {\n    &:before {\n      transform: rotate(180deg);\n    }\n  }\n"])));
 
 exports.Button = Button;
 
@@ -49,7 +49,7 @@ const MonthContainer = _styledComponents.default.div(_templateObject9 || (_templ
 
 exports.MonthContainer = MonthContainer;
 
-const MonthYearLabel = _styledComponents.default.span(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  align-self: flex-start;\n  z-index: 3;\n  font-size: 15px;\n  font-weight: bold;\n  position: sticky;\n  top: 10px;\n  left: 0;\n  width: max-content;\n  margin: 0 10px;\n"])));
+const MonthYearLabel = _styledComponents.default.span(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  align-self: flex-start;\n  z-index: 3;\n  font-size: 15px;\n  font-weight: bold;\n  position: sticky;\n  top: 10px;\n  left: 0;\n  width: max-content;\n  margin: 0.5rem;\n"])));
 
 exports.MonthYearLabel = MonthYearLabel;
 
@@ -57,6 +57,6 @@ const DaysContainer = _styledComponents.default.div(_templateObject11 || (_templ
 
 exports.DaysContainer = DaysContainer;
 
-const DateListScrollable = _styledComponents.default.div(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  display: flex;\n  overflow-x: scroll;\n  scrollbar-width: none;\n  margin: 2px 0 2px -40px;\n  -webkit-overflow-scrolling: touch;\n  &::-webkit-scrollbar {\n    -webkit-appearance: none;\n    display: none;\n  }\n"])));
+const DateListScrollable = _styledComponents.default.div(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  display: flex;\n  overflow-x: scroll;\n  scrollbar-width: none;\n  margin: 2px 1rem 2px 1rem;\n  -webkit-overflow-scrolling: touch;\n  &::-webkit-scrollbar {\n    -webkit-appearance: none;\n    display: none;\n  }\n"])));
 
 exports.DateListScrollable = DateListScrollable;

@@ -53,9 +53,7 @@ const DatePicker = (props) => {
   return (
     <Container>
       <ButtonWrapper style={buttonzIndex}>
-        <Button style={buttonStyle} onClick={prev}>
-          &lt;
-        </Button>
+        <Button className="left" style={buttonStyle} onClick={prev} />
       </ButtonWrapper>
       <Component
         {...props}
@@ -65,9 +63,7 @@ const DatePicker = (props) => {
         locale={locale}
       />
       <ButtonWrapper style={buttonzIndex}>
-        <Button style={buttonStyle} onClick={next}>
-          &gt;
-        </Button>
+        <Button className="right" style={buttonStyle} onClick={next} />
       </ButtonWrapper>
     </Container>
   );

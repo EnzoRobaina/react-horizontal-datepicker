@@ -16,7 +16,7 @@ function App() {
         days={366 * 25}
         selectDate={new Date(2021, 9, 1)}
         getSelectedDay={selectedDay}
-        color={"#ff0000"}
+        color={"#24292E"}
         locale={"ptBR"}
       />
     </div>
