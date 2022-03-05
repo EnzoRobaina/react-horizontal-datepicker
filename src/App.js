@@ -13,7 +13,7 @@ function App() {
       <h1>Ola</h1>
       <DatePicker
         startDate={startDate}
-        days={366 * 25}
+        days={10}
         selectDate={new Date(2021, 9, 1)}
         getSelectedDay={selectedDay}
         color={"#24292E"}

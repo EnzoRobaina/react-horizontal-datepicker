@@ -7,8 +7,16 @@ import MonthView from "./MonthView";
 import { Button, ButtonWrapper, Container } from "./styled";
 import * as Locales from "date-fns/locale";
 
-const DatePicker = (props) => {
-  const locale = Locales[props.locale] ?? Locales["enUS"];
+const DatePicker = ({
+  locale = "enUS",
+  color = "#000000",
+  className = "",
+  startDate = new Date(),
+  days = 90,
+  type,
+  ...props
+}) => {
+  const _locale = Locales[locale] ?? Locales["enUS"];
   const next = (event) => {
     event.preventDefault();
     const e = document.getElementById("container");
@@ -31,36 +39,35 @@ const DatePicker = (props) => {
     // e.scrollLeft -= width - 60;
   };
 
-  const primaryColor = props.color
-    ? props.color.indexOf("rgb") > 0
-      ? props.color
-      : hexToRgb(props.color)
+  const primaryColor = color
+    ? color.indexOf("rgb") > 0
+      ? color
+      : hexToRgb(color)
     : "rgb(54, 105, 238)";
 
-  const startDate = props.startDate || new Date();
-  const lastDate = addDays(startDate, props.days || 90);
+  const lastDate = addDays(startDate, days || 90);
 
   let buttonzIndex = { zIndex: 2 };
   let buttonStyle = { background: primaryColor };
   let Component = DateView;
 
-  if (props.type === "month") {
+  if (type === "month") {
     buttonzIndex = { zIndex: 5 };
     Component = MonthView;
     buttonStyle = { background: primaryColor, marginBottom: "5px" };
   }
 
   return (
-    <Container>
+    <Container className={className}>
       <ButtonWrapper style={buttonzIndex}>
         <Button className="left" style={buttonStyle} onClick={prev} />
       </ButtonWrapper>
       <Component
-        {...props}
         primaryColor={primaryColor}
         startDate={startDate}
         lastDate={lastDate}
-        locale={locale}
+        locale={_locale}
+        {...props}
       />
       <ButtonWrapper style={buttonzIndex}>
         <Button className="right" style={buttonStyle} onClick={next} />
